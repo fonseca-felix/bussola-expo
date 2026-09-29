@@ -38,7 +38,6 @@
 
 :root {
   --radius: 0.75rem;
-  /* Light: limpo e minimalista */
   --background: oklch(0.984 0.003 247.858);
   --foreground: oklch(0.21 0.02 260);
   --card: oklch(1 0 0);
@@ -64,7 +63,6 @@
 }
 
 .dark {
-  /* Dark: cabine de aviÃ£o */
   --background: oklch(0.17 0.035 265);
   --foreground: oklch(0.95 0.01 240);
   --card: oklch(0.22 0.038 262);
@@ -152,9 +150,7 @@
 @media print {
   body { background-color: white !important; color: black !important; }
   .dark { background-color: white !important; color: black !important; }
-  /* Removendo elementos desnecessários para a impressão */
   .fixed, nav, button, a.panel { display: none !important; }
-  /* Removendo limitações de tamanho e rolagem que quebram o PDF */
   html, body, div, section { 
     height: auto !important; 
     min-height: auto !important; 
@@ -162,14 +158,12 @@
     position: static !important;
     transform: none !important;
   }
-  /* Forçando cada slide a quebrar página */
   section { 
     page-break-after: always; 
     break-after: page; 
     padding: 2cm !important; 
     display: block !important;
   }
-  /* Ajustando cores dos painéis para economizar tinta e ler melhor */
   .panel { 
     border: 1px solid #ddd !important; 
     background: #fafafa !important; 
@@ -178,9 +172,7 @@
     break-inside: avoid;
   }
   .glow-text { text-shadow: none !important; }
-}
-
-@media print {
+  
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
