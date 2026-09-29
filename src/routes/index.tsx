@@ -7,6 +7,7 @@ import { InteractiveCompass } from "@/components/InteractiveCompass";
 import { PhoneAxes } from "@/components/PhoneAxes";
 import { useTheme } from "@/components/use-theme";
 import { useFontSize } from "@/components/use-font-size";
+import { PdfExportDialog } from "@/components/PdfExportDialog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,8 +44,8 @@ const SLIDES = [
 ];
 
 function Apresentacao() {
-  const { theme, toggle } = useTheme();
-  const { cycleSize } = useFontSize();
+  const { theme, toggle, setTheme } = useTheme();
+  const { cycleSize, level, setLevel } = useFontSize();
   const containerRef = useRef<HTMLDivElement>(null);
   const [scroll, setScroll] = useState(0);
   const [current, setCurrent] = useState(0);
@@ -112,13 +113,12 @@ function Apresentacao() {
 
       {/* Botões do Topo (Tema e Teoria) */}
       <div className="fixed right-5 top-5 z-30 flex items-center gap-3">
-        <button
-          onClick={() => window.print()}
-          aria-label="Imprimir em PDF"
-          className="panel grid h-12 w-12 place-items-center text-xl transition-transform hover:scale-105"
-        >
-          <Printer size={20} />
-        </button>
+        <PdfExportDialog 
+          currentTheme={theme} 
+          onThemeChange={setTheme} 
+          currentFontLevel={level} 
+          onFontLevelChange={setLevel} 
+        />
         <Link
           to="/teoria"
           className="panel grid h-12 place-items-center px-4 font-display font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"

@@ -29,5 +29,5 @@ export function useFontSize() {
     setLevel((l) => (l >= 5 ? 1 : l + 1));
   }, []);
 
-  return { level, cycleSize };
+  return { level, cycleSize, setLevel };
 }
