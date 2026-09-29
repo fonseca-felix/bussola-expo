@@ -148,3 +148,41 @@
   text-transform: uppercase;
   font-weight: 600;
 }
+
+@media print {
+  body { background-color: white !important; color: black !important; }
+  .dark { background-color: white !important; color: black !important; }
+  /* Removendo elementos desnecessários para a impressão */
+  .fixed, nav, button, a.panel { display: none !important; }
+  /* Removendo limitações de tamanho e rolagem que quebram o PDF */
+  html, body, div, section { 
+    height: auto !important; 
+    min-height: auto !important; 
+    overflow: visible !important; 
+    position: static !important;
+    transform: none !important;
+  }
+  /* Forçando cada slide a quebrar página */
+  section { 
+    page-break-after: always; 
+    break-after: page; 
+    padding: 2cm !important; 
+    display: block !important;
+  }
+  /* Ajustando cores dos painéis para economizar tinta e ler melhor */
+  .panel { 
+    border: 1px solid #ddd !important; 
+    background: #fafafa !important; 
+    box-shadow: none !important; 
+    color: black !important;
+    break-inside: avoid;
+  }
+  .glow-text { text-shadow: none !important; }
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Sun, Moon, Smartphone, Settings, Globe, Ruler, Map, Telescope, Gamepad2, Magnet, Infinity as InfinityIcon, Monitor, CircleHelp, ALargeSmall } from "lucide-react";
+import { Sun, Moon, Smartphone, Settings, Globe, Ruler, Map, Telescope, Gamepad2, Magnet, Infinity as InfinityIcon, Monitor, CircleHelp, ALargeSmall, Printer } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Slide, Bullet, Card } from "@/components/Slide";
 import { Compass } from "@/components/Compass";
@@ -112,6 +112,13 @@ function Apresentacao() {
 
       {/* Botões do Topo (Tema e Teoria) */}
       <div className="fixed right-5 top-5 z-30 flex items-center gap-3">
+        <button
+          onClick={() => window.print()}
+          aria-label="Imprimir em PDF"
+          className="panel grid h-12 w-12 place-items-center text-xl transition-transform hover:scale-105"
+        >
+          <Printer size={20} />
+        </button>
         <Link
           to="/teoria"
           className="panel grid h-12 place-items-center px-4 font-display font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
